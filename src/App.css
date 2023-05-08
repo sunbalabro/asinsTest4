@@ -12,7 +12,8 @@ body{
   background: linear-gradient(90deg, rgba(51,1,79,1) 0%, rgba(130,26,150,1) 48%, rgba(226,0,255,1) 100%);
 }
 .emojiSpan{
-  font-size: 200px;
+  font-size: 100px;
+  background-size: cover;
   cursor: pointer;
 }
 .h_search i{

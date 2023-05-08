@@ -22,16 +22,16 @@ export const SearchEmoji = () => {
     setSearchQuery(emojiInput)
     setEmojiInput('')
   }
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const fetchApi = await fetch(`https://emojifinder.com/*/ajax.php?action=search&query=${searchQuery}`)
+  
+  useEffect(()=>{
+    const fetchData = async () =>{
+      const fetchApi = await fetch(`https://emoji-api.com/emojis?search=${searchQuery}&access_key=6d59e42299c7abd98d2334ea89d4b69c8caba754`)
       const EmojiData = await fetchApi.json()
-      console.log({ EmojiData })
-      setEmojis(EmojiData.results)
+      console.log({ EmojiData})
+      setEmojis(EmojiData)
     }
     fetchData()
-  }, [searchQuery])
+  } , [searchQuery])
 
   return (
     <div className='pickerSelection'>
@@ -48,13 +48,17 @@ export const SearchEmoji = () => {
 
       <br />
       {
-        emojis ? emojis.map((item) => (
+
+        
+        emojis == null ? (<h1>Emoji Not found</h1>) :  emojis.map((item) => (
           <>
-          <Popover content={content} trigger='click'>
-            <span className='emojiSpan' onClick={()=> navigator.clipboard.writeText(String.fromCodePoint(parseInt(item.Code, 16)))}>{String.fromCodePoint(parseInt(item.Code, 16))}</span> &nbsp;
+          <Popover content={content}  className='emojiSpan' trigger='click'>
+            <span onClick={()=> navigator.clipboard.writeText(item.character)}>
+              {item.character}
+              </span> &nbsp;
           </Popover>
           </>
-        )) : null
+        ))
       }
 
     </div>
