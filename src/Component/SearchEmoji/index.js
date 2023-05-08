@@ -25,7 +25,7 @@ export const SearchEmoji = () => {
 
   useEffect(()=>{
     const fetchData = async () =>{
-      if(searchQuery == ""){
+      if(searchQuery === ""){
         setEmojis([])
       }else{
         const fetchApi = await fetch(`https://emoji-api.com/emojis?search=${searchQuery}&access_key=6d59e42299c7abd98d2334ea89d4b69c8caba754`)
