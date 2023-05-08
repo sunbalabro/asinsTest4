@@ -1,11 +1,9 @@
-import Picker from '@emoji-mart/react'
 import React, { useEffect, useState } from 'react'
-import data from '@emoji-mart/data'
-import { Button, Col, Popover, Row } from 'antd'
+import { Popover } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-export const SearchEmoji = ({ onEmojiSelect }) => {
+export const SearchEmoji = () => {
 
   const [emojis, setEmojis] = useState([])
   const [emojiInput, setEmojiInput] = useState('')
