@@ -15,7 +15,6 @@ export const SearchEmoji = () => {
   );
   const handleChange = (e) => {
     const sample = e.target.value
-    console.log({ sample })
     setEmojiInput(sample)
   }
   const handleClick = () => {
@@ -30,7 +29,6 @@ export const SearchEmoji = () => {
       }else{
         const fetchApi = await fetch(`https://emoji-api.com/emojis?search=${searchQuery}&access_key=6d59e42299c7abd98d2334ea89d4b69c8caba754`)
         const EmojiData = await fetchApi.json()
-        console.log({EmojiData})
         setEmojis(EmojiData)
       }
       
